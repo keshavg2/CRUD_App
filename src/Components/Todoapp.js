@@ -70,7 +70,7 @@ export default function Todo(){
         {people.map((person,index)=>{
           const { id,Title,Description,Time,selectedItem }= person;
          return( 
-         <div>
+         <div key={id}>
            <ul>
             <li><h4>{Title}</h4>
             <h5>{selectedItem}</h5> 
