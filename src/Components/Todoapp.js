@@ -4,6 +4,7 @@ import {TextField} from '@fluentui/react';
 import { Dropdown, IDropdownOption, DropdownMenuItemType } from '@fluentui/react';
 import {DatePicker} from '@fluentui/react';
 import { PrimaryButton } from '@fluentui/react';
+import './Todo.css';
 
 const options: IDropdownOption[] = [
   { key: 'Status', text: 'Status', itemType: DropdownMenuItemType.Header },
@@ -31,12 +32,13 @@ export default function Todo(){
       });
     }
     else{
-      console.log('Title and dscription is empty so fill it first');
+      console.log('Title and description is empty so fill it first');
     }
   }
 
     return(
-      <div>
+      <div >
+        <div className="stack">
         <Stack horizontal>
         <TextField 
         label="Title"  
@@ -58,6 +60,7 @@ export default function Todo(){
           onSelectDate={ date => setTime(date)}
         />
         </Stack>
+        </div>
         <Stack>
         <TextField 
         label="Description..." 
@@ -66,16 +69,19 @@ export default function Todo(){
         onChange={(e)=>setDescription(e.target.value)}
         />
         </Stack>
-        <PrimaryButton onClick={handleSubmit} text="Save" />
+        <PrimaryButton className="save" onClick={handleSubmit} text="Save" />
         {people.map((person,index)=>{
           const { id,Title,Description,Time,selectedItem }= person;
          return( 
-         <div key={id}>
-           <ul>
-            <li><h4>{Title}</h4>
-            <h5>{selectedItem}</h5> 
-            <h5>{new Date(Time).toString()}</h5></li>
-            <li><h6>{Description}</h6></li>
+         <div >
+           <ul key={id}>
+            <li className="Todo">
+                <div className="Todoapp">
+                <div><p>{Title}</p></div>
+                <div><h5>{selectedItem}</h5></div> 
+                <div><h6>{new Date(Time).toString()}</h6></div>
+                </div>
+              <div>{Description}</div></li>
            </ul>
           </div>
          ); 

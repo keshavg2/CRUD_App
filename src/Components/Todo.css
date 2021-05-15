@@ -1,0 +1,26 @@
+.Todo{
+    background-color:#f1f1f1;
+    display:flex;
+    flex-direction:column;
+    border: 1px solid #8f8787; 
+    border-radius: 3px;
+}
+
+.Todoapp{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+
+.Todo >div{
+  padding:10px;
+}
+
+.save{
+    margin:10px;
+}
+.stack{
+    display:flex;
+    justify-content: space-between;
+    flex-direction:row;
+}
